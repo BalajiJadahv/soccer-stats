@@ -21,7 +21,7 @@ stages{
    
     stage('Build Stage'){
              steps{
-               withMaven(maven : 'maven_3_3_9)
+               withMaven(maven : 'maven_3_3_9){
                sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
                sh "mvn -B -Dmaven.test.skip=true clean package"
                stash name: "artifact", includes: "target/soccer-stats-*.war"
