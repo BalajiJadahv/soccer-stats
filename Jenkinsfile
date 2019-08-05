@@ -17,7 +17,7 @@ stages{
                git 'https://github.com/BalajiJadahv/soccer-stats.git'
               }
            }
-    }
+    
    
     stage('Build Stage'){
              steps{
@@ -28,6 +28,7 @@ stages{
            }
      }
 }   
+}
 }
 //}
 //}
