@@ -13,26 +13,23 @@ agent any
 stages{
     stage('Checkout Code') {
               //  node {
-            //   echo "Balaji1"
           steps{  
                git 'https://github.com/BalajiJadahv/soccer-stats.git'
-              // echo "Balaji2"
               }
            }
+    }
+   
+    stage('Build Stage'){
+        withEnv(["PATH+MAVEN=${tool 'MAVEN_HOME'}/bin"]) {
+           def pom = readMavenPom file: 'pom.xml'
+             steps{
+               sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
+               sh "mvn -B -Dmaven.test.skip=true clean package"
+               stash name: "artifact", includes: "target/soccer-stats-*.war"
+           }
+        }
+     }
 }
-}   
-//stage('Build Stage'){
-
-  //      withEnv(["PATH+MAVEN=${tool 'MAVEN_HOME'}/bin"]) {
-    //     echo "Balaji3"
-      //      if(FULL_BUILD) {
-      //          def pom = readMavenPom file: 'pom.xml'
-        //        sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
-         //       sh "mvn -B -Dmaven.test.skip=true clean package"
-         //       stash name: "artifact", includes: "target/soccer-stats-*.war"
-       //     }
-      //  }
-   // }
 //}
 //}
 //if(FULL_BUILD) {
