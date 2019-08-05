@@ -7,7 +7,9 @@ final FULL_BUILD = params.FULL_BUILD
 
 final GIT_URL = 'https://github.com/BalajiJadahv/soccer-stats.git'
 //final NEXUS_URL = 'nexus.local:8081'
+pipeline{
 
+agent any
 stage('Build') {
     node {
         echo "Balaji1"
@@ -47,4 +49,4 @@ if(FULL_BUILD) {
     }
 }
 
-
+}
