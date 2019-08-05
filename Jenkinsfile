@@ -20,14 +20,12 @@ stages{
     }
    
     stage('Build Stage'){
-        //withEnv(["PATH+MAVEN=${tool 'MAVEN_HOME'}/bin"]) {
-         //  def pom = readMavenPom file: 'pom.xml'
              steps{
+               withMaven(maven : 'maven_3_3_9)
                sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
                sh "mvn -B -Dmaven.test.skip=true clean package"
                stash name: "artifact", includes: "target/soccer-stats-*.war"
            }
-     //   }
      }
 }
 //}
