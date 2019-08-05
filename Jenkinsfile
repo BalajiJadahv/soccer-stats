@@ -11,15 +11,16 @@ pipeline{
 agent any
 
 stages{
-stage('Checkout Code') {
-  //  node {
-        echo "Balaji1"
-     steps{  
-         git 'https://github.com/BalajiJadahv/soccer-stats.git'
-        echo "Balaji2"
+    stage('Checkout Code') {
+              //  node {
+               echo "Balaji1"
+          steps{  
+               git 'https://github.com/BalajiJadahv/soccer-stats.git'
+               echo "Balaji2"
+              }
+           }
 }
-}
-}
+}   
 //stage('Build Stage'){
 
   //      withEnv(["PATH+MAVEN=${tool 'MAVEN_HOME'}/bin"]) {
