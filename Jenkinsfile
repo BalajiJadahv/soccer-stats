@@ -13,10 +13,10 @@ agent any
 stages{
     stage('Checkout Code') {
               //  node {
-               echo "Balaji1"
+            //   echo "Balaji1"
           steps{  
                git 'https://github.com/BalajiJadahv/soccer-stats.git'
-               echo "Balaji2"
+              // echo "Balaji2"
               }
            }
 }
