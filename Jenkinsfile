@@ -20,8 +20,8 @@ stages{
     }
    
     stage('Build Stage'){
-        withEnv(["PATH+MAVEN=${tool 'MAVEN_HOME'}/bin"]) {
-           def pom = readMavenPom file: 'pom.xml'
+        //withEnv(["PATH+MAVEN=${tool 'MAVEN_HOME'}/bin"]) {
+         //  def pom = readMavenPom file: 'pom.xml'
              steps{
                sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
                sh "mvn -B -Dmaven.test.skip=true clean package"
@@ -29,7 +29,7 @@ stages{
            }
         }
      }
-}
+}MAVEN_HOME
 //}
 //}
 //if(FULL_BUILD) {
