@@ -27,6 +27,7 @@ stages{
                stash name: "artifact", includes: "target/soccer-stats-*.war"
            }
      }
+}   
 }
 //}
 //}
