@@ -27,9 +27,9 @@ stages{
                sh "mvn -B -Dmaven.test.skip=true clean package"
                stash name: "artifact", includes: "target/soccer-stats-*.war"
            }
-        }
+     //   }
      }
-}MAVEN_HOME
+}
 //}
 //}
 //if(FULL_BUILD) {
