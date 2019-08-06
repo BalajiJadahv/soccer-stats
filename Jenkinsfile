@@ -27,7 +27,7 @@ stages{
       //         stash name: "artifact", includes: "target/soccer-stats-*.war"
       //     }
     // }
-       sh 'mvn clean install'
+       sh 'mvn clean package'
 }   
 }
 }
