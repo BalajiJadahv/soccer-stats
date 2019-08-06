@@ -31,6 +31,7 @@ stages{
 }   
 }
 }
+}
 //}
 //}
 //if(FULL_BUILD) {
